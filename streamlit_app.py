@@ -8,6 +8,6 @@ streamlit.title("Darren's Fruit Shack")
 
 streamlit.header("Create Your Own Smoothie")
 
-streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
+streamlit.multiselect("Pick some fruits:", list(fruit_list.index))
 streamlit.dataframe(fruit_list)
 
