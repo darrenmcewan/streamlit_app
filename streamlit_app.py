@@ -8,6 +8,8 @@ streamlit.title("Darren's Fruit Shack")
 
 streamlit.header("Create Your Own Smoothie")
 
-streamlit.multiselect("Pick some fruits:", list(fruit_list.index))
-streamlit.dataframe(fruit_list)
+fruits_selected = streamlit.multiselect("Pick some fruits:", list(fruit_list.index),['Avocado','Strawberries'])
+fruits_to_show = fruit_list.loc[fruits_selected]
+
+streamlit.dataframe(fruits_to_show)
 
