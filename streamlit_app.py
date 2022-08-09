@@ -43,5 +43,5 @@ st.header("Create Your Own Smoothie")
 fruits_selected = st.multiselect("Pick some fruits:", list(fruit_list.index),['Avocado','Strawberries'])
 fruits_to_show = fruit_list.loc[fruits_selected]
 
-streamlit.dataframe(fruits_to_show)
+st.dataframe(fruits_to_show)
 
