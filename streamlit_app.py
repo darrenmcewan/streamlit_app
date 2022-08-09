@@ -43,9 +43,10 @@ def main():
     fruits_to_show = fruit_list.loc[fruits_selected]
 
     st.dataframe(fruits_to_show)
+    
+    st.camera_input("一二三,茄子!")
 
     
     
 if check_password():
-    st.write("Here goes your normal Streamlit app...")
     st.button("Click me", on_click=main())
