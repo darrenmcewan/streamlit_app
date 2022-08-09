@@ -31,17 +31,18 @@ def check_password():
 
 if check_password():
     st.write("Here goes your normal Streamlit app...")
-    st.button("Click me")
+    st.button("Click me", on_click=main())
 
-fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
-fruit_list = fruit_list.set_index('Fruit')
+def main():
+    fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+    fruit_list = fruit_list.set_index('Fruit')
 
-st.title("Darren's Fruit Shack")
+    st.title("Darren's Fruit Shack")
 
-st.header("Create Your Own Smoothie")
+    st.header("Create Your Own Smoothie")
 
-fruits_selected = st.multiselect("Pick some fruits:", list(fruit_list.index),['Avocado','Strawberries'])
-fruits_to_show = fruit_list.loc[fruits_selected]
+    fruits_selected = st.multiselect("Pick some fruits:", list(fruit_list.index),['Avocado','Strawberries'])
+    fruits_to_show = fruit_list.loc[fruits_selected]
 
-st.dataframe(fruits_to_show)
+    st.dataframe(fruits_to_show)
 
