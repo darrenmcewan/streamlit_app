@@ -29,9 +29,7 @@ def check_password():
         # Password correct.
         return True
 
-if check_password():
-    st.write("Here goes your normal Streamlit app...")
-    st.button("Click me", on_click=main())
+
 
 def main():
     fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
@@ -46,3 +44,8 @@ def main():
 
     st.dataframe(fruits_to_show)
 
+    
+    
+if check_password():
+    st.write("Here goes your normal Streamlit app...")
+    st.button("Click me", on_click=main())
