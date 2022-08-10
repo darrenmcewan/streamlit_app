@@ -48,4 +48,4 @@ def main():
     
     
 if check_password():
-    st.button("Click me", on_click=main())
+    main()
