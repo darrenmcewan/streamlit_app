@@ -44,7 +44,6 @@ def main():
 
     st.dataframe(fruits_to_show)
     
-    st.camera_input("一二三,茄子!")
 
     
     
