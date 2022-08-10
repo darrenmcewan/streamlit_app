@@ -2,10 +2,7 @@ import streamlit as st
 import pandas as pd
 
 def check_password():
-    """Returns `True` if the user had the correct password."""
-
     def password_entered():
-        """Checks whether a password entered by the user is correct."""
         if st.session_state["password"] == st.secrets["password"]:
             st.session_state["password_correct"] = True
             del st.session_state["password"]  # don't store password
@@ -32,6 +29,11 @@ def check_password():
 
 
 def main():
+    st.sidebar.caption('Wish to connect?')
+    st.sidebar.write('📧: darren@mcewan.me')
+    pdfFileObj = open('PDFs/Darren_McEwan_Resume-2022.pdf', 'rb')
+    st.sidebar.download_button('Download Resume',pdfFileObj,file_name='Darren_McEwan_Resume-2022.pdf',mime='pdf')
+    
     fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
     fruit_list = fruit_list.set_index('Fruit')
 
