@@ -26,6 +26,16 @@ def check_password():
         # Password correct.
         return True
 
+ def displayPDF(file):
+    # Opening file from file path
+    with open(file, "rb") as f:
+        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+
+    # Embedding PDF in HTML
+    pdf_display = F'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>' 
+    
+    # Displaying File
+    st.markdown(pdf_display, unsafe_allow_html=True)
 
 
 def main():
@@ -34,20 +44,23 @@ def main():
     pdfFileObj = open('PDFs/Darren_McEwan_Resume-2022.pdf', 'rb')
     st.sidebar.download_button('Download Resume',pdfFileObj,file_name='Darren_McEwan_Resume-2022.pdf',mime='pdf')
     
-    fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
-    fruit_list = fruit_list.set_index('Fruit')
-
-    st.title("Darren's Fruit Shack")
-
-    st.header("Create Your Own Smoothie")
-
-    fruits_selected = st.multiselect("Pick some fruits:", list(fruit_list.index),['Avocado','Strawberries'])
-    fruits_to_show = fruit_list.loc[fruits_selected]
-
-    st.dataframe(fruits_to_show)
+    tab1, tab2, tab3 = st.tabs(["Projects", "Resume", "Hobbies"])
     
+    with tab1:
+        fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+        fruit_list = fruit_list.set_index('Fruit')
 
+        st.title("Darren's Fruit Shack")
+
+        st.header("Create Your Own Smoothie")
+
+        fruits_selected = st.multiselect("Pick some fruits:", list(fruit_list.index),['Avocado','Strawberries'])
+        fruits_to_show = fruit_list.loc[fruits_selected]
+
+        st.dataframe(fruits_to_show)
     
+    with tab2:
+        displayPDF(pdfFileObj)
     
 if check_password():
     main()
