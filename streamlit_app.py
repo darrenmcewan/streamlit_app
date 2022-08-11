@@ -30,8 +30,6 @@ def check_password():
 
 
 def main():
-    st.sidebar.caption('Wish to connect?')
-    st.sidebar.write('📧: darren@mcewan.me')
     
     tab1, tab2, tab3 = st.tabs(["Projects", "Resume", "Hobbies"])
     
@@ -52,13 +50,14 @@ def main():
         st.header('Education & Work')
         pdfFileObj = open('PDFs/Darren_McEwan_Resume-2022.pdf', 'rb')
         st.download_button('Download Resume',pdfFileObj,file_name='Darren_McEwan_Resume-2022.pdf',mime='pdf')
+        
         pdf_file = 'PDFs/Darren_McEwan_Resume-2022.pdf'
         with open(pdf_file,"rb") as f:
             base64_pdf = base64.b64encode(f.read()).decode('utf-8')
             
         pdf_display = F'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
         st.markdown(pdf_display, unsafe_allow_html=True)
-        
+        st.write('📧: darren@mcewan.me')
         
         
 if check_password():
