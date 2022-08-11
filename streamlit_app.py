@@ -53,7 +53,7 @@ def main():
         pdf_file = 'PDFs/Darren_McEwan_Resume-2022.pdf'
         with open(pdf_file,"rb") as f:
             base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-        pdf_display = F'<embed src=”data:application/pdf;base64,{base64_pdf}” width=”700″ height=”1000″ type=”application/pdf”>’
+        pdf_display = F'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
         st.markdown(pdf_display, unsafe_allow_html=True)
     
 if check_password():
