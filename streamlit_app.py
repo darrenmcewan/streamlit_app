@@ -26,16 +26,6 @@ def check_password():
         # Password correct.
         return True
 
-def displayPDF(file):
-    # Opening file from file path
-    with open(file, "rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-
-    # Embedding PDF in HTML
-    pdf_display = F'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>' 
-
-    # Displaying File
-    st.markdown(pdf_display, unsafe_allow_html=True)
 
 
 def main():
@@ -60,7 +50,11 @@ def main():
         st.dataframe(fruits_to_show)
     
     with tab2:
-        displayPDF(pdfFileObj)
+        pdf_file = 'PDFs/Darren_McEwan_Resume-2022.pdf'
+        with open(pdf_file,"rb") as f:
+            base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+        pdf_display = F'<embed src=”data:application/pdf;base64,{base64_pdf}” width=”700″ height=”1000″ type=”application/pdf”>’
+        st.markdown(pdf_display, unsafe_allow_html=True)
     
 if check_password():
     main()
