@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import base64
 
 def check_password():
     def password_entered():
