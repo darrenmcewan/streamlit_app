@@ -54,7 +54,8 @@ def check(products, email):
     st.success('Check finished!')
     if email != "":
             send_email_gmail(email_subject, body_of_email, email)
-            st.success('Email sent to', email)
+            st.success(f'Email sent to {email}')
+           
     else:
         st.error("Error sending email")
     
