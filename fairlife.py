@@ -48,7 +48,7 @@ def check(products, email):
            
         else:
             body_of_email += '❌ Out of Stock' + XPATH_NAME[0]
-            st.write('❌ Out of Stock' + XPATH_NAME[0])
+            st.write('\n\n❌ Out of Stock' + XPATH_NAME[0])
             continue
         
     st.success('Check finished!')
