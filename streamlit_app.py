@@ -47,7 +47,7 @@ def main():
 
         user_option = st.multiselect("Choose an item", fairlife_flavors,['Chocolate'])
     
-        st.image([images[x] for x in user_option], width=40)
+        st.image([images[x] for x in user_option], width=110)
     
     with tab2:
         st.header('Education & Work')
