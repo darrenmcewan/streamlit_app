@@ -44,9 +44,9 @@ def main():
         
         images = dict(zip(fairlife_flavors, fairlife_images))
 
-        user_option = st.multiselect("Choose an item", ["–Select–"] + fairlife_flavors)
-
-        st.image(images[user_option])
+        user_option = st.multiselect("Choose an item", fairlife_flavors,['Chocolate'])
+        
+        st.image([images[x] for x in user_option])
     
     with tab2:
         st.header('Education & Work')
