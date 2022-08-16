@@ -3,7 +3,7 @@ import pandas as pd
 import base64
 import requests
 from lxml import html 
-from fairlife import check
+from fairlife import check, send_email_gmail
 
 
 def check_password():
@@ -54,6 +54,7 @@ def main():
         checker = st.button("Click me to check!")
         if checker:
             check(user_option)
+
         
     
     with tab2:

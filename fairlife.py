@@ -50,13 +50,13 @@ def check(products):
             continue
         
     st.success('Check finished!')
-    email_results = st.checkbox("Email Results")
-    if email_results:
-        email = st.text_input("Email address")
-        if email != "":
-            send_email_gmail(email_subject, body_of_email, email)
-            st.success('Email sent to', email)
-        else:
-            st.error("Error sending email")
+    #email_results = st.checkbox("Email Results")
+    #if email_results:
+    #    email = st.text_input("Email address")
+    #    if email != "":
+    #        send_email_gmail(email_subject, body_of_email, email)
+    #        st.success('Email sent to', email)
+    #    else:
+    #        st.error("Error sending email")
     
         
