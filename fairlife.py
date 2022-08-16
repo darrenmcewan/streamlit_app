@@ -28,9 +28,7 @@ def check(products):
                       'https://www.samsclub.com/p/premier-high-protein-shake-strawberry/prod24964333?xid=plp_product_3']
     
     items = dict(zip(fairlife_flavors, fairlife_links))
-    email_results = st.checkbox("Email Results")
-    if email_results:
-        email = st.text_input("Email address")
+    
         
     body_of_email = ""
     email_subject = "Fairlife Availability"
@@ -52,7 +50,9 @@ def check(products):
             continue
         
     st.success('Check finished!')
+    email_results = st.checkbox("Email Results")
     if email_results:
+        email = st.text_input("Email address")
         if email != "":
             send_email_gmail(email_subject, body_of_email, email)
             st.success('Email sent to', email)
