@@ -51,7 +51,9 @@ def main():
         user_option = st.multiselect("Choose an item", fairlife_flavors,['Chocolate'])
         st.image([images[x] for x in user_option], width=140)
         
-        st.button("Click me to check!", on_click=check(user_option))
+        checker = st.button("Click me to check!")
+        if checker:
+            check(user_option)
         
     
     with tab2:
