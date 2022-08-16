@@ -40,7 +40,7 @@ def main():
 
         st.header("Which item should we check?")
         fairlife_flavors = ['Chocolate','Vanilla','Salted Caramel','Strawberry']
-        fairlife_images = ['https://github.com/darrenmcewan/streamlit_app/blob/main/imgs/chocolate.png', 'https://github.com/darrenmcewan/streamlit_app/blob/main/imgs/vanilla.png','https://github.com/darrenmcewan/streamlit_app/blob/main/imgs/salted_caramel.png','https://github.com/darrenmcewan/streamlit_app/blob/main/imgs/strawberry.png']
+        fairlife_images = ['https://cdn-images-1.medium.com/max/1024/1*u9U3YjxT9c9A1FIaDMonHw.png', 'https://github.com/darrenmcewan/streamlit_app/blob/main/imgs/vanilla.png','https://github.com/darrenmcewan/streamlit_app/blob/main/imgs/salted_caramel.png','https://github.com/darrenmcewan/streamlit_app/blob/main/imgs/strawberry.png']
         #fairlife_selected = st.multiselect("Select Flavor:", fairlife_flavors,['Chocolate'])
         
         images = dict(zip(fairlife_flavors, fairlife_images))
