@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 import base64
+import requests
+from lxml import html 
+from fairlife import check
 
 
 def check_password():
@@ -41,13 +44,15 @@ def main():
         st.header("Which item should we check?")
         fairlife_flavors = ['Chocolate','Vanilla','Salted Caramel','Strawberry']
         fairlife_images = ['imgs/chocolate.png', 'imgs/vanilla.png','imgs/salted_caramel.png','imgs/strawberry.png']
-        #fairlife_selected = st.multiselect("Select Flavor:", fairlife_flavors,['Chocolate'])
+        
         
         images = dict(zip(fairlife_flavors, fairlife_images))
 
         user_option = st.multiselect("Choose an item", fairlife_flavors,['Chocolate'])
-    
-        st.image([images[x] for x in user_option], width=110)
+        st.image([images[x] for x in user_option], width=140)
+        
+        st.button("Click me to check!", on_click=check(user_option))
+        
     
     with tab2:
         st.header('Education & Work')
