@@ -1,3 +1,4 @@
+from turtle import width
 import streamlit as st
 import pandas as pd
 import base64
@@ -40,14 +41,14 @@ def main():
 
         st.header("Which item should we check?")
         fairlife_flavors = ['Chocolate','Vanilla','Salted Caramel','Strawberry']
-        fairlife_images = ['https://cdn-images-1.medium.com/max/1024/1*u9U3YjxT9c9A1FIaDMonHw.png', 'imgs/chocolate.png','https://github.com/darrenmcewan/streamlit_app/blob/main/imgs/salted_caramel.png','https://github.com/darrenmcewan/streamlit_app/blob/main/imgs/strawberry.png']
+        fairlife_images = ['imgs/chocolate.png', 'imgs/vanilla.png','imgs/salted_caramel.png','imgs/strawberry.png']
         #fairlife_selected = st.multiselect("Select Flavor:", fairlife_flavors,['Chocolate'])
         
         images = dict(zip(fairlife_flavors, fairlife_images))
 
         user_option = st.multiselect("Choose an item", fairlife_flavors,['Chocolate'])
     
-        st.image([images[x] for x in user_option])
+        st.image([images[x] for x in user_option], width=100)
     
     with tab2:
         st.header('Education & Work')
