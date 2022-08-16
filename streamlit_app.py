@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import base64
+from PIL import Image
 
 def check_password():
     def password_entered():
@@ -45,7 +46,8 @@ def main():
         images = dict(zip(fairlife_flavors, fairlife_images))
 
         user_option = st.multiselect("Choose an item", fairlife_flavors,['Chocolate'])
-        
+        for x in fairlife_images:
+            Image.open(x)
         st.image([images[x] for x in user_option])
     
     with tab2:
