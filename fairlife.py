@@ -44,16 +44,18 @@ def check(products):
 
         if len(XPATH_AVAILABILITY) == 1:
             body_of_email += 'In Stock!\n\n' + XPATH_NAME[0] + '\n\n' + f'{items[i]}'
-            st.text(f'✅ [In Stock!]({items[i]}) ' + XPATH_NAME[0])
+            st.write(f'✅ [In Stock!]({items[i]}) ' + XPATH_NAME[0])
            
         else:
             body_of_email += '❌ Out of Stock' + XPATH_NAME[0]
-            st.text('❌ Out of Stock' + XPATH_NAME[0])
+            st.write('❌ Out of Stock' + XPATH_NAME[0])
             continue
         
     st.success('Check finished!')
-    if email != "":
-        send_email_gmail(email_subject, body_of_email, email)
-        st.success('Email sent to', email)
-    else:
-        st.error("Error sending email")
+    if email_results:
+        if email != "":
+            send_email_gmail(email_subject, body_of_email, email)
+            st.success('Email sent to', email)
+        else:
+            st.error("Error sending email")
+        
