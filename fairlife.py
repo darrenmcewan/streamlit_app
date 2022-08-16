@@ -19,7 +19,7 @@ def send_email_gmail(subject, message, destination):
     msg['To'] = destination
     server.send_message(msg)
 
-def check(products):
+def check(products, email):
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'} 
     fairlife_flavors = ['Chocolate','Vanilla','Salted Caramel','Strawberry']
     fairlife_links = ['https://www.samsclub.com/p/fairlife-nutrition-plan-chocolate-30-g-protein-shake-11-5-fl-oz-12-pk/prod24381709',
@@ -32,9 +32,7 @@ def check(products):
         
     body_of_email = ""
     email_subject = "Fairlife Availability"
-    email_results = st.checkbox("Email Results")
-    if email_results:
-        email = st.text_input("Email address")
+    
         
     for i in products:
         page = requests.get(items[i], headers=headers) 

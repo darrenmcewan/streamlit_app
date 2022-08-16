@@ -51,9 +51,12 @@ def main():
         user_option = st.multiselect("Choose an item", fairlife_flavors,['Chocolate'])
         st.image([images[x] for x in user_option], width=140)
         
+        email_results = st.checkbox("Email Results")
+        if email_results:
+            email = st.text_input("Email address")
         checker = st.button("Click me to check!")
         if checker:
-            check(user_option)
+            check(user_option, email)
 
         
     
