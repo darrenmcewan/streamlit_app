@@ -1,8 +1,7 @@
-from turtle import width
 import streamlit as st
 import pandas as pd
 import base64
-from PIL import Image
+
 
 def check_password():
     def password_entered():
@@ -48,7 +47,7 @@ def main():
 
         user_option = st.multiselect("Choose an item", fairlife_flavors,['Chocolate'])
     
-        st.image([images[x] for x in user_option])
+        st.image([images[x] for x in user_option], width=40)
     
     with tab2:
         st.header('Education & Work')
