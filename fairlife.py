@@ -47,7 +47,7 @@ def check(products):
             st.text(f'✅ [In Stock!]({items[i]}) ' + XPATH_NAME[0])
            
         else:
-            body_of_email += '❌ Out of Stock' + XPATH_NAME[0]'
+            body_of_email += '❌ Out of Stock' + XPATH_NAME[0]
             st.text('❌ Out of Stock' + XPATH_NAME[0])
             continue
         
