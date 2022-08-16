@@ -32,6 +32,10 @@ def check(products):
         
     body_of_email = ""
     email_subject = "Fairlife Availability"
+    email_results = st.checkbox("Email Results")
+    if email_results:
+        email = st.text_input("Email address")
+        
     for i in products:
         page = requests.get(items[i], headers=headers) 
         doc = html.fromstring(page.content)
@@ -50,13 +54,10 @@ def check(products):
             continue
         
     st.success('Check finished!')
-    #email_results = st.checkbox("Email Results")
-    #if email_results:
-    #    email = st.text_input("Email address")
-    #    if email != "":
-    #        send_email_gmail(email_subject, body_of_email, email)
-    #        st.success('Email sent to', email)
-    #    else:
-    #        st.error("Error sending email")
+    if email != "":
+            send_email_gmail(email_subject, body_of_email, email)
+            st.success('Email sent to', email)
+        else:
+            st.error("Error sending email")
     
         
