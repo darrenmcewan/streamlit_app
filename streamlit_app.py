@@ -54,6 +54,8 @@ def main():
         email_results = st.checkbox("Email Results")
         if email_results:
             email = st.text_input("Email address")
+        else:
+            email = ""
         checker = st.button("Click me to check!")
         if checker:
             check(user_option, email)
