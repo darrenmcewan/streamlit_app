@@ -34,17 +34,19 @@ def main():
     tab1, tab2, tab3 = st.tabs(["Projects", "Resume", "Hobbies"])
     
     with tab1:
-        fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
-        fruit_list = fruit_list.set_index('Fruit')
+        
+        st.title("Darren's Fairlife Checker")
 
-        st.title("Darren's Fruit Shack")
+        st.header("Which item should we check?")
+        fairlife_flavors = ['Chocolate','Vanilla','Salted Caramel','Strawberry']
+        fairlife_images = ['imgs\chocolate.png', 'imgs\vanilla.png','imgs\salted_caramel.png','imgs\strawberry.png']
+        #fairlife_selected = st.multiselect("Select Flavor:", fairlife_flavors,['Chocolate'])
+        
+        images = dict(zip(fairlife_flavors, fairlife_images))
 
-        st.header("Create Your Own Smoothie")
+        user_option = st.multiselect("Choose an item", ["–Select–"] + fairlife_flavors)
 
-        fruits_selected = st.multiselect("Pick some fruits:", list(fruit_list.index),['Avocado','Strawberries'])
-        fruits_to_show = fruit_list.loc[fruits_selected]
-
-        st.dataframe(fruits_to_show)
+        st.image(images[user_option])
     
     with tab2:
         st.header('Education & Work')
