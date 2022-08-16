@@ -23,12 +23,13 @@ def check(products):
         if len(XPATH_AVAILABILITY) == 1:
             body_of_email = 'In Stock!\n\n' + XPATH_NAME[0] + '\n\n' + f'{i}'
             email_subject = 'In Stock! ' + XPATH_NAME[0]
-            st.text('In Stock! ' + XPATH_NAME[0])
+            st.text(':check_mark: In Stock! ' + XPATH_NAME[0])
             #send_email_gmail(email_subject, body_of_email, "darren@mcewan.me")
             #print('Email sent!')
             #print()
         else:
-            st.text('Out of Stock' + XPATH_NAME[0])
+            st.text(':cross_mark: Out of Stock' + XPATH_NAME[0])
             #print(XPATH_NAME[0])
     
             continue
+    st.success('Check finished!')
