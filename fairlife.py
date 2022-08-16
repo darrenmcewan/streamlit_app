@@ -1,6 +1,23 @@
 from lxml import html 
 import requests
 import streamlit as st
+from email.message import EmailMessage
+import smtplib 
+
+def send_email_gmail(subject, message, destination):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    #This is where you would replace your password with the app password
+    server.login('darrengmcewan@gmail.com', st.secrets["email_password"])
+
+    msg = EmailMessage()
+
+    message = f'{message}\n'
+    msg.set_content(message)
+    msg['Subject'] = subject
+    msg['From'] = 'darrengmcewan@gmail.com'
+    msg['To'] = destination
+    server.send_message(msg)
 
 def check(products):
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'} 
@@ -11,7 +28,12 @@ def check(products):
                       'https://www.samsclub.com/p/premier-high-protein-shake-strawberry/prod24964333?xid=plp_product_3']
     
     items = dict(zip(fairlife_flavors, fairlife_links))
-    
+    email_results = st.checkbox("Email Results")
+    if email_results:
+        email = st.text_input("Email address")
+        
+    body_of_email = ""
+    email_subject = "Fairlife Availability"
     for i in products:
         page = requests.get(items[i], headers=headers) 
         doc = html.fromstring(page.content)
@@ -21,15 +43,17 @@ def check(products):
         XPATH_AVAILABILITY = doc.xpath('//meta[@content="InStock"]')
 
         if len(XPATH_AVAILABILITY) == 1:
-            body_of_email = 'In Stock!\n\n' + XPATH_NAME[0] + '\n\n' + f'{i}'
-            email_subject = 'In Stock! ' + XPATH_NAME[0]
-            st.text(':check_mark: In Stock! ' + XPATH_NAME[0])
-            #send_email_gmail(email_subject, body_of_email, "darren@mcewan.me")
-            #print('Email sent!')
-            #print()
+            body_of_email += 'In Stock!\n\n' + XPATH_NAME[0] + '\n\n' + f'{items[i]}'
+            st.text(f'✅ [In Stock!]({items[i]}) ' + XPATH_NAME[0])
+           
         else:
-            st.text(':cross_mark: Out of Stock' + XPATH_NAME[0])
-            #print(XPATH_NAME[0])
-    
+            body_of_email += '❌ Out of Stock' + XPATH_NAME[0]'
+            st.text('❌ Out of Stock' + XPATH_NAME[0])
             continue
+        
     st.success('Check finished!')
+    if email != "":
+        send_email_gmail(email_subject, body_of_email, email)
+        st.success('Email sent to', email)
+    else:
+        st.error("Error sending email")
