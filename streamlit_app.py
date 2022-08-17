@@ -43,7 +43,7 @@ def main():
         if 'count' not in st.session_state:
             st.session_state.count = 0
             
-        st.write(f"I have been run {st.session_state.count} times!")
+        st.subheader(f"I have been run {st.session_state.count} times!")
         with st.expander("About"):
             st.write("""I am a big fan of the Fairlife nutrition shakes. With 30g of protein and only 2g of sugar, it's unmatched.
                      My love of Fairlife is shared by many, and therefore, sourcing the cases can be a challenge.
