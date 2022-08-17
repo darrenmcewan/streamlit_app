@@ -43,11 +43,9 @@ def main():
         with st.expander("About"):
             st.write("""I am a big fan of the Fairlife nutrition shakes. With 30g of protein and only 2g of sugar, it's unmatched.
                      My love of Fairlife is shared by many, and therefore, sourcing the cases can be a challenge.
-                     I created this script to run as a batch job every 15 minutes when I was running low, and I wanted to add it to this site.
-                     
-                     Select which flavor you would like to check the Sam's Club website for, and add in your email if you want the results delivered to your inbox.
-                     
-                     Enjoy! 😊🐮""")
+                     \nI created this script to run as a batch job every 15 minutes when I was running low, and I wanted to add it to this site.
+                     \n\nSelect which flavor you would like to check the Sam's Club website for, and add in your email if you want the results delivered to your inbox.
+                     \nEnjoy! 😊🐮""")
         st.header("Which item should we check?")
         fairlife_flavors = ['Chocolate','Vanilla','Salted Caramel','Strawberry']
         fairlife_images = ['imgs/chocolate.png', 'imgs/vanilla.png','imgs/salted_caramel.png','imgs/strawberry.png']
