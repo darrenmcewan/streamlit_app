@@ -72,7 +72,7 @@ def main():
             check(user_option, email)
         
         st.subheader('Do you want to be notified automatically of available fairlife?')
-        with st.expander()  
+        with st.expander():  
             st.text_input('Enter email')
             st.select_slider('How frequently?', options=['15min🤑', '30min🤪','60min🥰','6hrs😬','12hrs🤔','24hrs🙃'])
             confirm = st.button("Cick to confirm your choices!")
