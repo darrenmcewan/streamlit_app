@@ -40,8 +40,7 @@ def main():
     with tab1:
         
         st.title("Darren's Fairlife Checker")
-        #if 'count' not in st.session_state:
-        #    st.session_state.count = 0
+
             
         st.subheader(f"I have been run {st.secrets['run_count']} times!")
         with st.expander("About"):
@@ -71,7 +70,7 @@ def main():
         checker = st.button("Click me to check!")
         if checker:
             check(user_option, email)
-            st.secrets['run_count'] += 1
+            
 
         
     
