@@ -25,7 +25,7 @@ def check(products, email=""):
     fairlife_links = ['https://www.samsclub.com/p/fairlife-nutrition-plan-chocolate-30-g-protein-shake-11-5-fl-oz-12-pk/prod24381709',
                       'https://www.samsclub.com/p/fairlife-nutrition-plan-vanilla-11-5-fl-oz-12pk/prod24522971?xid=plp_product_6',
                       'https://www.samsclub.com/p/fairlife-nutrition-plan-salted-caramel-30-g-protein-shake-11-5-fl-oz-12-pk/prod24964063',
-                      'https://www.samsclub.com/p/premier-high-protein-shake-strawberry/prod24964333?xid=plp_product_3']
+                      'https://www.samsclub.com/p/fairlife-nutrition-plan-strawberry-protein-shake/P03001914?xid=cat_carousel_rich-relevance.all_departments2_2']
     
     items = dict(zip(fairlife_flavors, fairlife_links))
     
