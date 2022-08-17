@@ -40,6 +40,10 @@ def main():
     with tab1:
         
         st.title("Darren's Fairlife Checker")
+        if 'count' not in st.session_state:
+            st.session_state.count = 0
+            
+        st.write(f"I have been run {st.session_state.count} times!")
         with st.expander("About"):
             st.write("""I am a big fan of the Fairlife nutrition shakes. With 30g of protein and only 2g of sugar, it's unmatched.
                      My love of Fairlife is shared by many, and therefore, sourcing the cases can be a challenge.
@@ -61,9 +65,13 @@ def main():
             email = st.text_input("Email address")
         else:
             email = ""
+            
+        
+            
         checker = st.button("Click me to check!")
         if checker:
             check(user_option, email)
+            st.session_state.count += 1
 
         
     

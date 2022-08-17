@@ -47,8 +47,8 @@ def check(products, email=""):
             st.write(f'✅ [In Stock!]({items[i]}) ' + XPATH_NAME[0] + ' $' + str(doc.xpath('//meta[@itemprop=\"price\"]/@content')[0]))
            
         else:
-            body_of_email += '❌ Out of Stock' + XPATH_NAME[0]
-            st.write('\n\n❌ Out of Stock' + XPATH_NAME[0])
+            body_of_email += '❌ Out of Stock ' + XPATH_NAME[0]
+            st.write('\n\n❌ Out of Stock ' + XPATH_NAME[0])
             continue
         
     st.success('Check finished!')
@@ -57,5 +57,5 @@ def check(products, email=""):
             st.success(f'Email sent to {email}')
            
 
-    
+  
         
