@@ -30,7 +30,14 @@ def check_password():
             "Password", type="password", on_change=password_entered, key="password"
         )
         st.error("😕 Password incorrect")
-        st.image('imgs/king_patrick.jpg')
+        col1, col2, col3 = st.beta_columns([1,6,1])
+        with col1:
+            st.write("")
+        with col2:
+            st.image('imgs/king_patrick.jpg')
+        with col3:
+            st.write("")
+        
         return False
     else:
         # Password correct.
