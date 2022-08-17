@@ -44,7 +44,7 @@ def check(products, email=""):
 
         if len(XPATH_AVAILABILITY) == 1:
             body_of_email += 'In Stock!\n\n' + XPATH_NAME[0] + '\n\n' + f'{items[i]}'
-            st.write(f'✅ [In Stock!]({items[i]}) ' + XPATH_NAME[0] + '$' + str(doc.xpath('//meta[@itemprop=\"price\"]/@content')[0]))
+            st.write(f'✅ [In Stock!]({items[i]}) ' + XPATH_NAME[0] + ' $' + str(doc.xpath('//meta[@itemprop=\"price\"]/@content')[0]))
            
         else:
             body_of_email += '❌ Out of Stock' + XPATH_NAME[0]
