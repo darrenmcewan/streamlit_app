@@ -70,13 +70,14 @@ def main():
         checker = st.button("Click me to check!")
         if checker:
             check(user_option, email)
-            
+        
         st.subheader('Do you want to be notified automatically of available fairlife?')
-        st.text_input('Enter email')
-        st.select_slider('How frequently?', options=['15min🤑', '30min🤪','60min🥰','6hrs😬','12hrs🤔','24hrs🙃'])
-        confirm = st.button("Cick to confirm your choices!")
-        if confirm:
-            st.success("Preferences Saved")
+        with st.expander()  
+            st.text_input('Enter email')
+            st.select_slider('How frequently?', options=['15min🤑', '30min🤪','60min🥰','6hrs😬','12hrs🤔','24hrs🙃'])
+            confirm = st.button("Cick to confirm your choices!")
+            if confirm:
+                st.success("Preferences Saved")
     
     with tab2:
         st.header('Education & Work')
