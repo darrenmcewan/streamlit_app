@@ -17,6 +17,8 @@ def check_password():
 
     if "password_correct" not in st.session_state:
         # First run, show input for password.
+        st.header('Greetings')
+        st.write('Hello and welcome to my site. This initial page was just to try out a password protected site using Streamlit. \nType 'test' into the box and come on in!')
         st.text_input(
             "Password", type="password", on_change=password_entered, key="password"
         )
