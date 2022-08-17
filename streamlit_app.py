@@ -42,7 +42,6 @@ def main():
         st.title("Darren's Fairlife Checker")
 
             
-        st.subheader(f"I have been run {st.secrets['run_count']} times!")
         with st.expander("About"):
             st.write("""I am a big fan of the Fairlife nutrition shakes. With 30g of protein and only 2g of sugar, it's unmatched.
                      My love of Fairlife is shared by many, and therefore, sourcing the cases can be a challenge.
