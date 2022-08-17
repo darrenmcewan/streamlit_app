@@ -25,7 +25,7 @@ def check_password():
         return False
     elif not st.session_state["password_correct"]:
         # Password not correct, show input + error.
-        st.write('errr just type test')
+        st.subheader('errr just type test')
         st.text_input(
             "Password", type="password", on_change=password_entered, key="password"
         )
