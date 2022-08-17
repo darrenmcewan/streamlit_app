@@ -30,7 +30,7 @@ def check_password():
             "Password", type="password", on_change=password_entered, key="password"
         )
         st.error("😕 Password incorrect")
-        col1, col2, col3 = st.beta_columns([1,6,1])
+        col1, col2, col3 = st.columns([1,6,1])
         with col1:
             st.write("")
         with col2:
