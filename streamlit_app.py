@@ -4,6 +4,7 @@ import base64
 import requests
 from lxml import html 
 from fairlife import check, send_email_gmail
+from datetime import time
 
 
 def check_password():
@@ -70,8 +71,12 @@ def main():
         if checker:
             check(user_option, email)
             
-
-        
+        st.subheader('Do you want to be notified automatically of available fairlife?')
+        st.text_input('Enter email')
+        st.slider('How frequently?', options=['15min🤑', '30min🤪','60min🥰','6hrs😬','12hrs🤔','24hrs🙃'])
+        confirm = st.button("Cick to confirm your choices!")
+        if confirm:
+            st.success("Preferences Saved")
     
     with tab2:
         st.header('Education & Work')
