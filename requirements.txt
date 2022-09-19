@@ -1,3 +1,0 @@
-pandas
-base64
-requests
