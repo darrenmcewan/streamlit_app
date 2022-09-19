@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import base64
 import requests
-#from lxml import html 
+from lxml import html 
 from fairlife import check, send_email_gmail
 from datetime import time
 
