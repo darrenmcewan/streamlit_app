@@ -1,4 +1,3 @@
-lxml
 pandas
 base64
 requests
