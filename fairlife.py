@@ -1,4 +1,4 @@
-import lxml.html 
+from lxml import html 
 import requests
 import streamlit as st
 from email.message import EmailMessage
